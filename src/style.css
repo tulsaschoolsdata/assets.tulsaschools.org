@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  color: theme('colors.gray.800');
+  background: theme('colors.white');
+  min-width: 300px;
+  line-height: theme('lineHeight.tight');
+  height: 100%;
+  min-height: 100%;
+}
+
+a {
+  color: theme('colors.blue.500');
+  text-decoration: underline;
+}
+
+button, a.button {
+  @apply rounded-md;
+  @apply py-2;
+  @apply px-4;
+  @apply bg-blue-500;
+  @apply text-white;
+  @apply no-underline;
+}
+button:hover, a.button:hover {
+  @apply bg-blue-700;
+}
+button:disabled, a.button:disabled {
+  @apply opacity-50;
+  @apply pointer-events-none;
+}
+
+p, ul, ol, dl {
+  margin: theme('spacing.4') 0;
+}
+
+ul {
+  @apply list-disc ml-6;
+}
+
+dt {
+  /* font-weight: theme('fontWeight.bold'); */
+  font-style: italic;
+}
+dd {
+  margin: theme('spacing.2') 0 theme('spacing.2') theme('spacing.4');
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: theme('fontWeight.bold');
+  margin-bottom: theme('spacing.4');
+}
+h1 {
+  font-size: theme('fontSize.4xl')
+}
+h2 {
+  font-size: theme('fontSize.3xl')
+}
+h3 {
+  font-size: theme('fontSize.2xl')
+}
+h4 {
+  font-size: theme('fontSize.xl')
+}
+h5 {
+  font-size: theme('fontSize.lg')
+}
+h6 {
+  font-size: theme('fontSize.base')
+}
+
+label.disabled {
+  opacity: 0.5;
+}
+
+.actions {
+  @apply flex flex-row-reverse space-x-2 space-x-reverse;
+  @apply border-t border-t-gray-200 py-4 my-4;
+}
+
+.payment-schedule {
+  overflow-x: auto;
+}
+.payment-schedule table td ,
+.payment-schedule table th {
+  border: 1px solid theme('colors.black');;
+  padding: 0.5em;
+  text-align: center;
+  vertical-align: top;
+}
+.payment-schedule table .a {
+  background: theme('colors.blue.800');
+  color: theme('colors.white');
+}
+.payment-schedule table .b {
+  background: theme('colors.blue.300');
+}
+.payment-schedule table .c {
+  background: theme('colors.blue.200');
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  html, body {
+    color: theme('colors.white');
+    background: theme('colors.gray.800');
+  }
+
+  .actions {
+    @apply border-t-gray-600;
+  }
+
+  .payment-schedule table td ,
+  .payment-schedule table th {
+    border: 1px solid theme('colors.white');
+  }
+  .payment-schedule table .a {
+    background: theme('colors.gray.400');
+    color: theme('colors.white');
+  }
+  .payment-schedule table .b {
+    background: theme('colors.gray.500');
+  }
+  .payment-schedule table .c {
+    background: theme('colors.gray.700');
+  }
+}
